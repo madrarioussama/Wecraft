@@ -1,7 +1,10 @@
 {
   "name": "wecraft-dashboard",
   "version": "1.0.0",
+  "dependencies": {
+    "firebase-tools": "^13.17.0"
+  },
   "devDependencies": {
-    "firebase-tools": "^15.17.0"
+    "uipro-cli": "^1.2.1"
   }
 }

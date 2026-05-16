@@ -18,12 +18,15 @@ const ICONS = {
     bag: `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>`,
     money: `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>`,
     invoice: `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`,
+    print: `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>`,
     table_view: `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 10h18M3 14h18M10 3v18M3 3h18v18H3z"/></svg>`,
     kanban_view: `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="5" height="18" rx="1"/><rect x="10" y="3" width="5" height="11" rx="1"/><rect x="17" y="3" width="5" height="15" rx="1"/></svg>`,
     phone: `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18.85a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.81.37 1.6.72 2.33a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.75-1.29a2 2 0 0 1 2.11-.45c.73.35 1.52.6 2.33.72A2 2 0 0 1 22 16.92z"></path></svg>`,
     mail: `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`,
     sun: `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>`,
     moon: `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3c0 .4.04.79.1 1.17A7 7 0 0021 12.79z"></path></svg>`,
+    delivery: `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M15 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M5 18h-1a1 1 0 0 1 -1 -1v-6l2 -5h7v10"/><path d="M9 18h6"/><path d="M13 6h5l3 5v6a1 1 0 0 1 -1 1h-1"/><path d="M13 11l8 0"/><path d="M13 15l8 0"/></svg>`,
+    refresh: `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>`,
 };
 
 // --- CONFIG ---
@@ -41,11 +44,12 @@ const EMAILJS_TEMPLATE_ID = "template_1m9z65r"; // Replace with your Template ID
     }
 })();
 
-const STATUSES = ["To Do", "Doing", "Done"];
+const STATUSES = ["To Do", "Doing", "Done", "Completed"];
 const STATUS_COLORS = {
     "To Do": { bg: "#ffe5e5", text: "#8c0909", dot: "#f54d4d" },
     "Doing": { bg: "#ffd6d6", text: "#8c0909", dot: "#d90f0f" },
     "Done": { bg: "#fcb3b3", text: "#660606", dot: "#b30c0c" },
+    "Completed": { bg: "#ecfdf5", text: "#059669", dot: "#10b981" },
     "New": { bg: "#ffe5e5", text: "#8c0909", dot: "#f54d4d" },
     "Design Ready": { bg: "#ffd6d6", text: "#8c0909", dot: "#d90f0f" },
     "In Production": { bg: "#fcb3b3", text: "#660606", dot: "#b30c0c" },
@@ -102,12 +106,14 @@ const RUBANS_COULEURS = [
 const PRINT_COLORS = ["White", "Black", "Gold", "Silver", "Bleu", "Red", "Pink", "Yellow"];
 
 // --- GOOGLE SHEETS CONFIG ---
-const API_URL = "https://script.google.com/macros/s/AKfycbxpjR4S7PXwxTo81GfMZofKQ2HrnqAM65-3ESSa5FVB4BeZ574ifLPzaZn1rjJe8es/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbyyILMCMzVtbDLNMymq5TPhkGIWLsp1Q91_HHoRtKzU5XnDN90EVYSylQY2qwCtITka/exec";
+const DELIVERY_API_URL = API_URL;
 
 // --- INITIAL DATA ---
-let orders = [];
+let orders = JSON.parse(localStorage.getItem('wecraft-orders')) || [];
 let tasks = [];
-let clients = [];
+let clients = JSON.parse(localStorage.getItem('wecraft-clients')) || [];
+let deliveries = JSON.parse(localStorage.getItem('wecraft-deliveries')) || [];
 let stocks = JSON.parse(localStorage.getItem('wecraft-stocks')) || {
     "Ruban": 0,
     "Sachet sylable": 0,
@@ -118,11 +124,25 @@ function saveStocks() {
     localStorage.setItem('wecraft-stocks', JSON.stringify(stocks));
 }
 
+function saveOrders() {
+    localStorage.setItem('wecraft-orders', JSON.stringify(orders));
+}
+
+function saveClients() {
+    localStorage.setItem('wecraft-clients', JSON.stringify(clients));
+}
+
+function saveDeliveries() {
+    localStorage.setItem('wecraft-deliveries', JSON.stringify(deliveries));
+}
+
 // --- STATE ---
 let currentView = 'dashboard';
 let isSidebarCollapsed = false;
 let ordersFilter = { search: '', status: '', city: '' };
+let clientsFilter = { search: '' };
 let ordersViewMode = 'table'; // 'table' | 'kanban'
+let statusMenuOutsideHandlerBound = false;
 const THEME_STORAGE_KEY = 'wecraft-theme';
 
 function getInitialTheme() {
@@ -164,6 +184,192 @@ const getWhatsAppLink = (phone) => {
     return `https://wa.me/212${p}`;
 };
 
+const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, char => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+}[char]));
+
+const OZONE_API_BASE = 'https://api.ozonexpress.ma/customers';
+const OZONE_PDF_BASE = 'https://client.ozoneexpress.ma';
+const OZONE_CITIES_URL = 'https://api.ozonexpress.ma/cities';
+let ozoneCitiesCache = null;
+
+async function fetchOzoneCities() {
+    if (ozoneCitiesCache) return ozoneCitiesCache;
+    const response = await fetch(OZONE_CITIES_URL);
+    const data = await response.json();
+    const citiesObj = data.CITIES || data;
+    ozoneCitiesCache = Object.values(citiesObj)
+        .filter(c => c && c.ID != null)
+        .map(c => ({ id: String(c.ID), name: c.NAME }))
+        .sort((a, b) => a.name.localeCompare(b.name, 'fr'));
+    return ozoneCitiesCache;
+}
+
+function resolveOzoneCityId(input) {
+    if (!input) return '';
+    const trimmed = String(input).trim();
+    if (/^\d+$/.test(trimmed)) return trimmed;
+    const cities = ozoneCitiesCache || [];
+    const lower = trimmed.toLowerCase();
+    const exact = cities.find(c => c.name.toLowerCase() === lower);
+    if (exact) return exact.id;
+    const partial = cities.find(c => {
+        const name = c.name.toLowerCase();
+        return name.includes(lower) || lower.includes(name);
+    });
+    return partial?.id || '';
+}
+
+function getOzoneCityName(cityId) {
+    if (!cityId) return '';
+    const match = (ozoneCitiesCache || []).find(c => String(c.id) === String(cityId));
+    return match?.name || '';
+}
+
+async function populateOzoneCitySelect(selectedId = '') {
+    const select = document.getElementById('delivery-city');
+    if (!select) return;
+    try {
+        const cities = await fetchOzoneCities();
+        const defaultId = selectedId
+            || cities.find(c => /Casablanca – Maarif/i.test(c.name))?.id
+            || cities.find(c => /Casablanca/i.test(c.name))?.id
+            || '';
+        select.innerHTML = '<option value="">Select a city</option>' +
+            cities.map(c => `<option value="${c.id}"${c.id === defaultId ? ' selected' : ''}>${escapeHtml(c.name)}</option>`).join('');
+    } catch (e) {
+        console.error('Failed to load Ozone cities', e);
+        select.innerHTML = '<option value="">Could not load cities — refresh and try again</option>';
+    }
+}
+
+function getOzoneCredentials() {
+    return {
+        id: localStorage.getItem('ozone-id') || '',
+        key: localStorage.getItem('ozone-key') || ''
+    };
+}
+
+function saveOzoneCredentials(id, key) {
+    localStorage.setItem('ozone-id', id);
+    localStorage.setItem('ozone-key', key);
+}
+
+async function ozoneRequest(service, { id, key, fields = {}, json = false } = {}) {
+    if (!id || !key) throw new Error('Ozone customer ID and API key are required.');
+
+    const url = `${OZONE_API_BASE}/${encodeURIComponent(id)}/${encodeURIComponent(key)}/${service}`;
+    const options = { method: 'POST' };
+
+    if (json) {
+        options.headers = { 'Content-Type': 'application/json' };
+        options.body = JSON.stringify(fields);
+    } else {
+        const formData = new FormData();
+        Object.entries(fields).forEach(([field, value]) => {
+            if (Array.isArray(value)) {
+                value.forEach((item, index) => formData.append(`${field}[${index}]`, item));
+            } else if (value !== undefined && value !== null && value !== '') {
+                formData.append(field, value);
+            }
+        });
+        options.body = formData;
+    }
+
+    const response = await fetch(url, options);
+    const raw = await response.text();
+    let data;
+    try {
+        data = raw ? JSON.parse(raw) : {};
+    } catch (e) {
+        data = { raw };
+    }
+
+    if (!response.ok) {
+        throw new Error(data.message || data.error || raw || `Ozone request failed (${response.status})`);
+    }
+
+    const addParcelError = data?.['ADD-PARCEL'];
+    if (addParcelError?.RESULT === 'ERROR' && addParcelError.MESSAGE) {
+        throw new Error(addParcelError.MESSAGE);
+    }
+
+    return data;
+}
+
+function getOzoneErrorMessage(data) {
+    const addParcel = data?.['ADD-PARCEL'];
+    if (addParcel?.RESULT === 'ERROR' && addParcel.MESSAGE) return addParcel.MESSAGE;
+    if (data?.message) return data.message;
+    return '';
+}
+
+function getOzoneValue(data, keys) {
+    let item = Array.isArray(data)
+        ? data[0]
+        : (data?.['ADD-PARCEL']?.['NEW-PARCEL']
+            || data?.['ADD-PARCEL']
+            || data?.['PARCEL-INFO']?.INFOS
+            || data?.TRACKING?.LAST_TRACKING
+            || data?.TRACKING
+            || data?.data
+            || data?.parcel
+            || data?.result
+            || data);
+
+    // If item is an array (e.g. data.TRACKING is an array of events), pick the first one
+    if (Array.isArray(item)) item = item[0];
+
+    if (!item || typeof item !== 'object') return '';
+    const lowerMap = Object.keys(item).reduce((acc, key) => {
+        acc[key.toLowerCase()] = item[key];
+        return acc;
+    }, {});
+    for (const key of keys) {
+        if (item[key] !== undefined && item[key] !== null && item[key] !== '') return item[key];
+        const lower = key.toLowerCase();
+        if (lowerMap[lower] !== undefined && lowerMap[lower] !== null && lowerMap[lower] !== '') return lowerMap[lower];
+    }
+    return '';
+}
+
+function getTrackingNumber(data) {
+    return getOzoneValue(data, ['TRACKING-NUMBER', 'tracking-number', 'tracking', 'tracking_number', 'code', 'Code']);
+}
+
+function getTrackingStatus(data) {
+    return getOzoneValue(data, ['STATUS', 'status', 'STATUT', 'statut', 'LAST_STATUS', 'last_status']);
+}
+
+function getPaymentStatus(data) {
+    return getOzoneValue(data, ['ETAT', 'etat', 'payment_status', 'Payment Status']);
+}
+
+function normalizeOzoneRows(data, fallbackNumbers = []) {
+    if (data?.['PARCEL-INFO']?.INFOS || data?.TRACKING) return [data];
+    if (Array.isArray(data)) return data;
+    if (Array.isArray(data?.data)) return data.data;
+    if (Array.isArray(data?.result)) return data.result;
+    if (data?.data && typeof data.data === 'object') return Object.values(data.data);
+    if (data?.result && typeof data.result === 'object') return Object.values(data.result);
+
+    const values = data && typeof data === 'object' ? Object.values(data) : [];
+    const objectValues = values.filter(value => value && typeof value === 'object');
+    if (objectValues.length > 1) return objectValues;
+
+    return fallbackNumbers.length > 1
+        ? fallbackNumbers.map(number => ({ ...data, 'tracking-number': number }))
+        : [data];
+}
+
+function renderJsonBlock(data) {
+    return `<pre class="api-result-block">${escapeHtml(JSON.stringify(data, null, 2))}</pre>`;
+}
+
 async function sheetsAction(action, payload = {}) {
     showLoading(true);
     try {
@@ -187,28 +393,32 @@ async function sheetsAction(action, payload = {}) {
 async function callSheets(data) {
     showLoading(true);
     try {
-        if (data.action === 'getOrders') {
-            const response = await fetch(API_URL);
+        const isDeliveryAction = data.action === 'getDeliveries' || data.action === 'addDelivery' || data.action === 'updateDelivery' || data.action === 'deleteDelivery';
+        const targetUrl = isDeliveryAction ? DELIVERY_API_URL : API_URL;
+
+        if (data.action === 'getOrders' || data.action === 'getDeliveries') {
+            const url = `${targetUrl}?action=${data.action}`;
+            const response = await fetch(url, { redirect: 'follow' });
             const result = await response.json();
-            if (!result.success && result.message) alert("Sheets Error: " + result.message);
+            if (!result.success && result.message) console.error("Sheets Error:", result.message);
             return result;
         }
 
         // Send as text/plain to avoid preflight, then wait 1.5s for Google to process
-        await fetch(API_URL, {
+        await fetch(targetUrl, {
             method: 'POST',
             mode: 'no-cors',
+            redirect: 'follow',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify(data)
         });
 
         return { success: true };
     } catch (e) {
-        console.error("Sheets Connection Error:", e);
-        alert("Connection to Google Sheets failed. Check your internet or Script URL.");
+        console.error("Critical Sheets Connection Error:", e);
+        alert("Connection to Google Sheets failed. Ensure your script is deployed as 'Anyone' and you have authorized it.");
         return { success: false };
     } finally {
-        // Longer timeout to ensure background process finishes on Google side
         setTimeout(() => showLoading(false), 1500);
     }
 }
@@ -231,13 +441,13 @@ function showToast(message, type = 'success') {
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
 
-    let icon = '';
-    if (type === 'success') icon = '✓';
-    else if (type === 'error') icon = '✕';
-    else icon = 'ℹ';
+    let iconSvg = '';
+    if (type === 'success') iconSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>`;
+    else if (type === 'error') iconSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>`;
+    else iconSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`;
 
     toast.innerHTML = `
-        <div style="width: 24px; height: 24px; border-radius: 50%; background: ${type === 'success' ? '#ecfdf5' : type === 'error' ? '#fee2e2' : '#eff6ff'}; color: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#3b82f6'}; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">${icon}</div>
+        <div style="width: 24px; height: 24px; border-radius: 50%; background: ${type === 'success' ? '#ecfdf5' : type === 'error' ? '#fee2e2' : '#eff6ff'}; color: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#3b82f6'}; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">${iconSvg}</div>
         <div style="font-size: 14px; font-weight: 500;">${message}</div>
     `;
 
@@ -276,6 +486,12 @@ function showConfirm({ title, text, confirmText = 'Delete', cancelText = 'Cancel
 async function init() {
     applyTheme(getInitialTheme());
 
+    // Set default Ozone credentials if not present
+    if (!localStorage.getItem('ozone-id')) localStorage.setItem('ozone-id', '85297');
+    if (!localStorage.getItem('ozone-key')) localStorage.setItem('ozone-key', 'fa6c69-33022d-9a987e-96ce89-9b753f');
+
+    fetchOzoneCities().catch(() => null);
+
     // Initialize EmailJS
     if (typeof emailjs !== 'undefined') {
         emailjs.init({
@@ -297,11 +513,22 @@ async function init() {
     setupEventListeners();
 
     // Initial Data Fetch from Sheets
-    const result = await callSheets({ action: 'getOrders' });
-    if (result && result.success) {
-        orders = result.orders;
-    } else {
-        console.warn("Could not load from Sheets, using empty/local storage.");
+    try {
+        const [ordersResult, deliveriesResult] = await Promise.all([
+            callSheets({ action: 'getOrders' }).catch(() => null),
+            callSheets({ action: 'getDeliveries' }).catch(() => null)
+        ]);
+
+        if (ordersResult && ordersResult.success && ordersResult.orders.length > 0) {
+            orders = ordersResult.orders;
+            saveOrders();
+        }
+        if (deliveriesResult && deliveriesResult.success && deliveriesResult.deliveries.length > 0) {
+            deliveries = deliveriesResult.deliveries;
+            saveDeliveries();
+        }
+    } catch (e) {
+        console.error("Sync error on init:", e);
     }
 
     // Initial Render
@@ -360,6 +587,24 @@ function setupEventListeners() {
     });
 }
 
+function safeRenderView() {
+    const activeId = document.activeElement?.id;
+    const selectionStart = document.activeElement?.selectionStart;
+    const selectionEnd = document.activeElement?.selectionEnd;
+
+    renderView();
+
+    if (activeId) {
+        const el = document.getElementById(activeId);
+        if (el) {
+            el.focus();
+            if (selectionStart !== undefined && el.setSelectionRange) {
+                el.setSelectionRange(selectionStart, selectionEnd);
+            }
+        }
+    }
+}
+
 function renderView() {
     const content = document.getElementById('main-content');
     const title = document.getElementById('view-title');
@@ -380,6 +625,9 @@ function renderView() {
             break;
         case 'clients':
             renderClients(content);
+            break;
+        case 'delivery':
+            renderDelivery(content);
             break;
     }
 }
@@ -451,22 +699,22 @@ function renderDashboard(container) {
         <div class="card">
             <h3 class="font-bold mb-4" style="font-size: 15px;">Recent Orders</h3>
             <div class="table-wrapper" style="border: none;">
-                <table>
+                <table class="responsive-card-table order-card-table">
                     <thead>
                         <tr>
                             <th>Client</th>
                             <th>Article</th>
                             <th>Ville</th>
-                            <th>Status</th>
+                            <th class="text-center">Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         ${orders.slice(0, 5).map(o => `
                             <tr>
-                                <td class="font-bold">${o.client}</td>
-                                <td>${o.article}</td>
-                                <td>${o.ville}</td>
-                                <td>${renderBadge(o.status)}</td>
+                                <td data-label="Client" class="font-bold">${o.client}</td>
+                                <td data-label="Article">${o.article}</td>
+                                <td data-label="Ville">${o.ville}</td>
+                                <td data-label="Status" class="text-center">${renderBadge(o.status)}</td>
                             </tr>
                         `).join('')}
                     </tbody>
@@ -486,32 +734,49 @@ function renderOrders(container) {
             (!ordersFilter.city || (o.ville && o.ville.toLowerCase().includes(ordersFilter.city.toLowerCase())));
     });
 
+    // Count by status for pills
+    const todoCnt  = orders.filter(o => o.status === 'To Do').length;
+    const doingCnt = orders.filter(o => o.status === 'Doing').length;
+    const doneCnt  = orders.filter(o => o.status === 'Done').length;
+    const completedCnt = orders.filter(o => o.status === 'Completed').length;
+    const totalCnt = orders.length;
+
     let html = `
-        <div class="flex justify-between items-center mb-4">
-            <div>
-                <p class="text-sm" style="color: var(--text-muted)">${filtered.length} total orders</p>
+        <div class="orders-topbar">
+            <div class="orders-search-wrap">
+                <span class="orders-search-icon">${ICONS.search}</span>
+                <input type="text" id="order-search" placeholder="Search orders…" value="${ordersFilter.search}" class="orders-search-input">
             </div>
-            <div class="flex gap-2">
-                <div class="flex orders-view-toggle">
-                    <button class="btn-icon orders-view-btn ${ordersViewMode === 'table' ? 'active' : ''}" id="view-table">${ICONS.table_view} Table</button>
-                    <button class="btn-icon orders-view-btn ${ordersViewMode === 'kanban' ? 'active' : ''}" id="view-kanban">${ICONS.kanban_view} Kanban</button>
-                </div>
-                <button class="btn btn-primary orders-new-btn" id="add-order-btn">${ICONS.plus} New Order</button>
+            
+            <div class="orders-view-toggle flex" style="margin-left: auto; margin-right: 12px;">
+                <button class="orders-view-btn ${ordersViewMode === 'table' ? 'active' : ''}" id="view-table" title="Table View">${ICONS.table_view}</button>
+                <button class="orders-view-btn ${ordersViewMode === 'kanban' ? 'active' : ''}" id="view-kanban" title="Kanban View">${ICONS.kanban_view}</button>
             </div>
+
+            <button class="orders-add-btn btn-primary" id="add-order-btn" title="New Order">${ICONS.plus} <span class="mobile-hide">New Order</span></button>
         </div>
 
-        <div class="flex gap-3 mb-4">
-            <div style="position: relative; flex: 1; max-width: 300px;">
-                <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-light)">${ICONS.search}</span>
-                <input type="text" id="order-search" placeholder="Search orders..." value="${ordersFilter.search}" style="padding-left: 36px;">
+        <!-- Stats pills -->
+        <div class="orders-stats-row">
+            <div class="orders-stat-pill orders-stat-all ${!ordersFilter.status ? 'active' : ''}" data-status="">
+                <span class="osp-num">${totalCnt}</span>
+                <span class="osp-label">Total</span>
             </div>
-            <select id="order-status-filter" style="width: auto; min-width: 140px;">
-                <option value="">All Statuses</option>
-                ${STATUSES.map(s => `<option value="${s}" ${ordersFilter.status === s ? 'selected' : ''}>${s}</option>`).join('')}
-            </select>
-            <div style="position: relative; flex: 1; max-width: 200px;">
-                <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-light)">${ICONS.search}</span>
-                <input type="text" id="order-city-filter" placeholder="Filter by Ville..." value="${ordersFilter.city}" style="padding-left: 36px;">
+            <div class="orders-stat-pill orders-stat-todo ${ordersFilter.status === 'To Do' ? 'active' : ''}" data-status="To Do">
+                <span class="osp-num">${todoCnt}</span>
+                <span class="osp-label">To Do</span>
+            </div>
+            <div class="orders-stat-pill orders-stat-doing ${ordersFilter.status === 'Doing' ? 'active' : ''}" data-status="Doing">
+                <span class="osp-num">${doingCnt}</span>
+                <span class="osp-label">Doing</span>
+            </div>
+            <div class="orders-stat-pill orders-stat-done ${ordersFilter.status === 'Done' ? 'active' : ''}" data-status="Done">
+                <span class="osp-num">${doneCnt}</span>
+                <span class="osp-label">Done</span>
+            </div>
+            <div class="orders-stat-pill orders-stat-completed ${ordersFilter.status === 'Completed' ? 'active' : ''}" data-status="Completed">
+                <span class="osp-num">${completedCnt}</span>
+                <span class="osp-label">Completed</span>
             </div>
         </div>
     `;
@@ -519,46 +784,82 @@ function renderOrders(container) {
     if (ordersViewMode === 'table') {
         html += `
             <div class="table-wrapper">
-                <table>
+                <table class="responsive-card-table desktop-table">
                     <thead>
                         <tr>
                             <th>Client</th>
                             <th>Article</th>
                             <th>Colors/Qty</th>
                             <th>Ville</th>
-                            <th style="text-align: center;">Phone</th>
-                            <th style="text-align: center;">Status</th>
-                            <th style="text-align: center;">Actions</th>
+                            <th class="text-center">Phone</th>
+                            <th class="text-center">Status</th>
+                            <th class="text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        ${filtered.map(o => `
+                    ${filtered.map(o => {
+                            // Compute summary info if items exists
+                            let colorsSummary = o.colors || '';
+                            let qtySummary = o.quantities || '';
+                            
+                            if (o.items && o.items.length > 0) {
+                                colorsSummary = o.items.map(item => {
+                                    if (item.article === 'Ruban') {
+                                        return (item.colorsData || []).map(c => c.name).join(', ');
+                                    } else {
+                                        return item.sachetData?.color || '';
+                                    }
+                                }).filter(Boolean).join(' | ');
+                                
+                                qtySummary = o.items.map(item => {
+                                    if (item.article === 'Ruban') {
+                                        const sum = (item.colorsData || []).reduce((acc, c) => acc + (parseInt(c.qty) || 0), 0);
+                                        return sum + ' units';
+                                    } else {
+                                        return (item.sachetData?.qty || 0) + ' units';
+                                    }
+                                }).join(' | ');
+                            }
+
+                            return `
                             <tr>
-                                <td>
-                                    <span class="font-bold">${o.client}</span>
+                                <td data-label="Client">
+                                    <div style="font-weight: 700; color: var(--text-main);">${o.client}</div>
                                 </td>
-                                <td>${o.article}</td>
-                                <td>
-                                    <div class="text-xs">${o.colors}</div>
-                                    <div class="text-xs" style="color: var(--text-light)">${o.quantities}</div>
+                                <td data-label="Article">
+                                    <div style="font-weight: 500;">${o.article}</div>
                                 </td>
-                                <td>${o.ville}</td>
-                                <td style="text-align: center;">
-                                    <div class="flex items-center gap-3 justify-center">
-                                        <a href="${getWhatsAppLink(o.phone)}" target="_blank" style="color: #10b981;" title="WhatsApp">${ICONS.whatsapp}</a>
-                                        <a href="tel:${formatPhone(o.phone)}" style="color: var(--text-muted);" title="Call">${ICONS.phone}</a>
+                                <td data-label="Colors/Qty">
+                                    <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                                        <div class="text-xs">${colorsSummary}</div>
+                                        <div class="text-xs" style="color: var(--text-light); text-transform: uppercase; font-weight: 600;">${qtySummary}</div>
                                     </div>
                                 </td>
-                                <td style="text-align: center;">${renderStatusDropdown(o)}</td>
-                                <td style="text-align: center;">
-                                    <div class="flex gap-2 justify-center">
-                                        <button class="btn-icon view-order" data-id="${o.id}" title="View Details">${ICONS.eye}</button>
+                                <td data-label="Ville">
+                                    <div class="flex items-center gap-2">
+                                        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                        <span style="font-weight: 500;">${o.ville}</span>
+                                    </div>
+                                </td>
+                                <td data-label="Phone" style="text-align: center;">
+                                    <div class="flex items-center justify-center gap-3">
+                                        <a href="tel:${formatPhone(o.phone)}" style="color: var(--text-muted); text-decoration: none;">${formatPhone(o.phone)}</a>
+                                        <a href="${getWhatsAppLink(o.phone)}" target="_blank" style="color: #10b981; display: flex;">${ICONS.whatsapp}</a>
+                                    </div>
+                                </td>
+                                <td data-label="Status" class="text-center">
+                                    ${renderStatusDropdown(o)}
+                                </td>
+                                <td data-label="Actions" class="text-center">
+                                    <div class="flex justify-center gap-2">
+                                        <button class="btn-icon ship-order" data-id="${o.id}" title="Ship with Ozone">${ICONS.delivery}</button>
+                                        <button class="btn-icon view-order" data-id="${o.id}" title="View">${ICONS.eye}</button>
                                         <button class="btn-icon edit-order" data-id="${o.id}" title="Edit">${ICONS.edit}</button>
                                         <button class="btn-icon delete-order" data-id="${o.id}" title="Delete" style="color: var(--accent-rose);">${ICONS.trash}</button>
                                     </div>
                                 </td>
                             </tr>
-                        `).join('')}
+                        `}).join('')}
                         ${filtered.length === 0 ? '<tr><td colspan="7" style="text-align: center; padding: 40px; color: var(--text-light)">No orders found</td></tr>' : ''}
                     </tbody>
                 </table>
@@ -577,12 +878,19 @@ function renderOrders(container) {
                                 <span class="text-xs font-bold" style="color: var(--text-light)">${colOrders.length}</span>
                             </div>
                             <div class="kanban-cards-area" style="min-height: 200px;">
-                                ${colOrders.map(o => `
+                                ${colOrders.map(o => {
+                                    let colorsSum = o.colors || '';
+                                    let qtySum = o.quantities || '';
+                                    if (o.items && o.items.length > 0) {
+                                        colorsSum = o.items.map(it => it.article === 'Ruban' ? (it.colorsData || []).map(c => c.name).join(', ') : (it.sachetData?.color || '')).filter(Boolean).join(' | ');
+                                        qtySum = o.items.map(it => it.article === 'Ruban' ? (it.colorsData || []).reduce((a, c) => a + (parseInt(c.qty) || 0), 0) + ' units' : (it.sachetData?.qty || 0) + ' units').join(' | ');
+                                    }
+                                    return `
                                     <div class="kanban-card" draggable="true" data-id="${o.id}">
                                         ${o.design ? `<img src="${o.design}">` : ''}
                                         <h4>${o.client}</h4>
-                                        <p>${o.article} · ${o.colors}</p>
-                                        <p class="text-xs" style="color: var(--text-light); margin-top: -8px; margin-bottom: 8px;">${o.quantities}</p>
+                                        <p>${o.article} · ${colorsSum}</p>
+                                        <p class="text-xs" style="color: var(--text-light); margin-top: -8px; margin-bottom: 8px; text-transform: uppercase; font-weight: 600;">${qtySum}</p>
                                         <div class="flex justify-between items-center">
                                             <span class="text-xs font-bold">${o.ville}</span>
                                             <div class="flex gap-2">
@@ -594,7 +902,7 @@ function renderOrders(container) {
                                             </div>
                                         </div>
                                     </div>
-                                `).join('')}
+                                `;}).join('')}
                             </div>
                         </div>
                     `;
@@ -609,15 +917,38 @@ function renderOrders(container) {
     document.getElementById('view-table').addEventListener('click', () => { ordersViewMode = 'table'; renderView(); });
     document.getElementById('view-kanban').addEventListener('click', () => { ordersViewMode = 'kanban'; renderView(); });
     document.getElementById('add-order-btn').addEventListener('click', () => showOrderModal());
-    document.getElementById('order-search').addEventListener('input', (e) => { ordersFilter.search = e.target.value; renderView(); });
-    document.getElementById('order-status-filter').addEventListener('change', (e) => { ordersFilter.status = e.target.value; renderView(); });
-    document.getElementById('order-city-filter').addEventListener('input', (e) => { ordersFilter.city = e.target.value; renderView(); });
+    document.getElementById('order-search').addEventListener('input', (e) => { ordersFilter.search = e.target.value; safeRenderView(); });
+    container.querySelectorAll('.status-seg-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            ordersFilter.status = btn.dataset.status;
+            renderView();
+        });
+    });
+
+    container.querySelectorAll('.orders-stat-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+            ordersFilter.status = pill.dataset.status;
+            renderView();
+        });
+    });
 
     container.querySelectorAll('.edit-order').forEach(btn => {
         btn.addEventListener('click', () => {
             const id = btn.dataset.id;
             const order = orders.find(o => o.id === id);
             showOrderModal(order);
+        });
+    });
+
+    container.querySelectorAll('.ship-order').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = btn.dataset.id;
+            const order = orders.find(o => o.id === id);
+            showDeliveryModal();
+            // We need to wait for the modal to be in the DOM to set the value, 
+            // or just pass the orderId to showDeliveryModal
+            document.getElementById('delivery-order-link').value = id;
+            fillDeliveryFromOrder(id);
         });
     });
 
@@ -640,30 +971,29 @@ function renderOrders(container) {
         });
     });
 
-    container.querySelectorAll('.status-dropdown').forEach(select => {
-        select.addEventListener('change', async (e) => {
-            const id = e.target.dataset.id;
-            const newStatus = e.target.value;
-            const order = orders.find(o => o.id === id);
-
-            if (order && order.status !== newStatus) {
-                const originalStatus = order.status;
-                const updatedOrder = { ...order, status: newStatus };
-
-                // Optimistic UI update
-                orders = orders.map(o => o.id === id ? updatedOrder : o);
-                renderView();
-
-                const result = await callSheets({ action: 'updateOrder', order: updatedOrder });
-                if (!result || !result.success) {
-                    alert("Failed to update status in the database.");
-                    // Revert back on failure
-                    orders = orders.map(o => o.id === id ? { ...order, status: originalStatus } : o);
-                    renderView();
-                }
-            }
+    container.querySelectorAll('.status-select-trigger').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const picker = trigger.closest('.status-picker');
+            const willOpen = !picker.classList.contains('open');
+            closeAllStatusMenus();
+            picker.classList.toggle('open', willOpen);
+            trigger.setAttribute('aria-expanded', String(willOpen));
         });
     });
+
+    container.querySelectorAll('.status-select-option').forEach(option => {
+        option.addEventListener('click', async (e) => {
+            e.stopPropagation();
+            closeAllStatusMenus();
+            await updateOrderStatus(option.dataset.id, option.dataset.status);
+        });
+    });
+
+    if (!statusMenuOutsideHandlerBound) {
+        document.addEventListener('click', closeAllStatusMenus);
+        statusMenuOutsideHandlerBound = true;
+    }
 
     if (ordersViewMode === 'kanban') setupKanbanListeners();
 }
@@ -729,7 +1059,7 @@ function renderTasks(container) {
     });
 
     let html = `
-        <div class="flex justify-between items-center fade-in" style="margin-bottom: 24px;">
+        <div class="flex justify-between items-center fade-in mobile-page-toolbar" style="margin-bottom: 24px;">
             <div>
                 <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 4px;">Inventory Overview</h2>
                 <p class="text-sm" style="color: var(--text-muted)">Total items needed for all active orders (To Do, Doing)</p>
@@ -740,22 +1070,22 @@ function renderTasks(container) {
             </div>
         </div>
 
-        <div class="card mb-10 fade-in" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 1.5rem;">
+        <div class="card mb-10 fade-in mobile-stock-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 1.5rem;">
             <h3 style="margin: 0 0 1rem 0; font-size: 1.1rem; font-weight: 700;">Stock Management</h3>
-            <div class="flex gap-3 fade-in" style="background: var(--surface-muted); padding: 16px; border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 20px;">
-                <div style="flex: 1; display: flex; align-items: center; gap: 8px;">
+            <div class="flex gap-3 fade-in mobile-stock-editor" style="background: var(--surface-muted); padding: 16px; border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 20px;">
+                <div class="mobile-stock-controls" style="flex: 1; display: flex; align-items: center; gap: 8px;">
                     <span style="font-size: 14px; font-weight: 600; color: var(--text-muted); white-space: nowrap;">I have</span>
                     <input type="number" id="stock-qty-input" placeholder="0">
                     <span style="font-size: 14px; font-weight: 600; color: var(--text-muted); white-space: nowrap;">of</span>
-                    <select id="stock-product-select" style="height: 40px; border-radius: 8px; flex: 1;">
+                    <select id="stock-product-select" style="flex: 1;">
                         <option value="Ruban">Ruban</option>
                         <option value="Sachet sylable">Sachet sylable</option>
                         <option value="Sachet non tissé">Sachet non tissé</option>
                     </select>
-                    <button class="btn btn-primary" id="update-stock-btn" style="height: 40px; padding: 0 20px;">Update Stock</button>
+                    <button class="btn btn-primary" id="update-stock-btn">Update Stock</button>
                 </div>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+            <div class="mobile-stock-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
                 ${Object.entries(stocks).map(([prod, qty]) => `
                     <div style="background: var(--bg-main); padding: 16px; border-radius: 12px; border: 1px solid var(--border-color); text-align: center;">
                         <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-weight: 700; margin-bottom: 4px;">${prod}</div>
@@ -766,7 +1096,7 @@ function renderTasks(container) {
             </div>
         </div>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;" class="fade-in">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;" class="fade-in mobile-inventory-grid">
     `;
 
     if (Object.keys(inventory).length === 0) {
@@ -842,51 +1172,84 @@ function renderTasks(container) {
 }
 
 function renderClients(container) {
+    const filtered = clients.filter(c => {
+        const q = (clientsFilter.search || '').toLowerCase();
+        return !q || c.name.toLowerCase().includes(q) || (c.phone && c.phone.includes(q)) || (c.city && c.city.toLowerCase().includes(q));
+    });
+
     let html = `
-        <div class="flex justify-between items-center mb-4">
-            <p class="text-sm" style="color: var(--text-muted)">${clients.length} listed clients</p>
-            <button class="btn btn-primary" id="add-client-btn">${ICONS.plus} New Client</button>
+        <div class="flex justify-between items-center mobile-page-toolbar" style="margin-bottom: 24px;">
+            <div>
+                <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 4px;">Client Directory</h2>
+                <p class="text-sm" style="color: var(--text-muted)">${filtered.length} matching clients</p>
+            </div>
+            <div class="flex gap-3 mobile-action-row">
+                <div class="mobile-search-field" style="position: relative; width: 300px;">
+                    <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-light); display: flex;">${ICONS.search}</span>
+                    <input type="text" id="client-search" placeholder="Search clients..." value="${clientsFilter.search || ''}" class="orders-search-input" style="padding-left: 38px; background: var(--bg-card);">
+                </div>
+                <button class="btn btn-primary" id="add-client-btn">${ICONS.plus} New Client</button>
+            </div>
         </div>
-        <div class="clients-grid">
-            ${clients.map(c => {
+        
+        <div class="table-wrapper">
+            <table class="responsive-card-table desktop-table">
+                <thead>
+                    <tr>
+                        <th>Client</th>
+                        <th class="text-center">Phone</th>
+                        <th class="text-center">City</th>
+                        <th class="text-center">Orders</th>
+                        <th class="text-center">Total Spent</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${filtered.map(c => {
         const oCount = orders.filter(o => o.client === c.name).length;
         const totalSpent = orders.filter(o => o.client === c.name).reduce((s, o) => s + o.price, 0);
         return `
-                    <div class="client-card">
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="flex gap-3">
-                                <div class="client-avatar">${c.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}</div>
-                                <div>
-                                    <h4 class="font-bold">${c.name}</h4>
-                                    <p class="text-xs" style="color: var(--text-light)">${c.city}</p>
+                        <tr>
+                            <td data-label="Client">
+                                <div class="flex items-center gap-3">
+                                    <div class="client-avatar" style="width: 32px; height: 32px; font-size: 12px;">${c.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}</div>
+                                    <div style="font-weight: 700; color: var(--text-main);">${c.name}</div>
                                 </div>
-                            </div>
-                            <a href="${getWhatsAppLink(c.phone)}" target="_blank" style="color: #10b981;">${ICONS.whatsapp}</a>
-                        </div>
-                        <div class="flex gap-2 mb-4">
-                            <div style="flex: 1; background: var(--surface-muted); padding: 10px; border-radius: 8px; text-align: center; border: 1px solid var(--border-color);">
-                                <div class="font-bold">${oCount}</div>
-                                <div class="text-xs" style="color: var(--text-light)">Orders</div>
-                            </div>
-                            <div style="flex: 1; background: var(--surface-muted); padding: 10px; border-radius: 8px; text-align: center; border: 1px solid var(--border-color);">
-                                <div class="font-bold">${totalSpent}</div>
-                                <div class="text-xs" style="color: var(--text-light)">Spent</div>
-                            </div>
-                        </div>
-                        <p class="text-sm mb-4" style="color: var(--text-muted); min-height: 40px;">${c.notes || 'No notes available.'}</p>
-                        <div class="flex gap-2" style="border-top: 1px solid var(--border-color); pt-4">
-                            <button class="btn btn-secondary edit-client" data-id="${c.id}" style="flex: 1; justify-content: center; font-size: 12px; margin-top: 12px;">${ICONS.edit} Edit</button>
-                            <button class="btn btn-danger delete-client" data-id="${c.id}" style="margin-top: 12px;">${ICONS.trash}</button>
-                        </div>
-                    </div>
-                `;
+                            </td>
+                            <td data-label="Phone" class="text-center">
+                                <div class="flex items-center justify-center gap-2">
+                                    <span style="color: var(--text-muted); font-family: monospace;">${formatPhone(c.phone)}</span>
+                                    <a href="${getWhatsAppLink(c.phone)}" target="_blank" style="color: #10b981; display: flex;">${ICONS.whatsapp}</a>
+                                </div>
+                            </td>
+                            <td data-label="City" class="text-center"><span style="color: var(--text-muted); font-weight: 500;">${c.city || '-'}</span></td>
+                            <td data-label="Orders" class="text-center">
+                                <span class="badge" style="background: var(--surface-muted); color: var(--text-main); font-weight: 700;">${oCount}</span>
+                            </td>
+                            <td data-label="Spent" class="text-center">
+                                <div style="font-weight: 800; color: var(--primary);">${totalSpent.toLocaleString()} DH</div>
+                            </td>
+                            <td data-label="Actions" class="text-center">
+                                <div class="flex justify-center gap-2">
+                                    <button class="btn-icon edit-client" data-id="${c.id}" title="Edit Client">${ICONS.edit}</button>
+                                    <button class="btn-icon delete-client" data-id="${c.id}" title="Delete Client" style="color: var(--accent-rose);">${ICONS.trash}</button>
+                                </div>
+                            </td>
+                        </tr>
+                    `;
     }).join('')}
+                </tbody>
+            </table>
         </div>
     `;
 
     container.innerHTML = html;
 
     document.getElementById('add-client-btn').addEventListener('click', () => showClientModal());
+    document.getElementById('client-search').addEventListener('input', (e) => {
+        clientsFilter.search = e.target.value;
+        safeRenderView();
+    });
     container.querySelectorAll('.edit-client').forEach(btn => {
         btn.addEventListener('click', () => {
             const client = clients.find(c => c.id === btn.dataset.id);
@@ -895,10 +1258,143 @@ function renderClients(container) {
     });
     container.querySelectorAll('.delete-client').forEach(btn => {
         btn.addEventListener('click', () => {
-            if (confirm('Delete this client?')) {
-                clients = clients.filter(c => c.id !== btn.dataset.id);
-                renderView();
-            }
+            const client = clients.find(c => c.id === btn.dataset.id);
+            showConfirm({
+                title: 'Delete Client',
+                text: `Are you sure you want to delete <strong>${client?.name || 'this client'}</strong>? This action cannot be undone.`,
+                confirmText: 'Delete Client',
+                onConfirm: () => {
+                    clients = clients.filter(c => c.id !== btn.dataset.id);
+                    saveClients();
+                    renderView();
+                    closeModal();
+                    showToast('Client deleted successfully', 'success');
+                }
+            });
+        });
+    });
+}
+
+function renderDelivery(container) {
+    const filtered = deliveries.filter(d => {
+        const q = (ordersFilter.search || '').toLowerCase();
+        return !q
+            || String(d.receiver || '').toLowerCase().includes(q)
+            || String(d.tracking || '').toLowerCase().includes(q)
+            || String(d.city || '').toLowerCase().includes(q)
+            || String(d.status || '').toLowerCase().includes(q);
+    });
+
+    let html = `
+        <div class="flex justify-between items-center mobile-page-toolbar" style="margin-bottom: 24px;">
+            <div>
+                <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 4px;">Delivery Tracking</h2>
+                <p class="text-sm" style="color: var(--text-muted)">${filtered.length} active deliveries</p>
+            </div>
+            <div class="flex gap-3 mobile-action-row">
+                <div class="mobile-search-field" style="position: relative; width: 300px;">
+                    <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-light); display: flex;">${ICONS.search}</span>
+                    <input type="text" id="delivery-search" placeholder="Search tracking, name..." value="${ordersFilter.search || ''}" class="orders-search-input" style="padding-left: 38px; background: var(--bg-card);">
+                </div>
+                <button class="btn btn-secondary" id="import-deliveries-btn" title="Import Existing Deliveries">${ICONS.upload}</button>
+                <button class="btn btn-secondary" id="refresh-all-deliveries-btn" title="Refresh all tracking statuses">${ICONS.refresh}</button>
+                <button class="btn btn-secondary" id="track-parcel-btn">${ICONS.search} Track</button>
+                <button class="btn btn-secondary" id="delivery-note-btn">${ICONS.invoice} BL</button>
+                <button class="btn btn-primary" id="add-delivery-btn">${ICONS.plus} New Parcel</button>
+            </div>
+        </div>
+        
+        <div class="table-wrapper">
+            <table class="responsive-card-table desktop-table">
+                <thead>
+                    <tr>
+                        <th>Tracking #</th>
+                        <th>Receiver</th>
+                        <th>City</th>
+                        <th>Price</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${filtered.map(d => `
+                        <tr>
+	                            <td data-label="Tracking">
+	                                <div style="font-weight: 800; font-family: monospace; color: var(--primary);">${d.tracking || '-'}</div>
+                                    ${d.deliveryNoteRef ? `<div style="font-size: 11px; color: var(--text-muted);">BL ${d.deliveryNoteRef}</div>` : ''}
+	                            </td>
+                            <td data-label="Receiver">
+                                <div style="font-weight: 700; color: var(--text-main);">${d.receiver}</div>
+                                <div style="font-size: 11px; color: var(--text-muted);">${formatPhone(d.phone)}</div>
+                            </td>
+                            <td data-label="City"><span style="color: var(--text-muted); font-weight: 500;">${d.city}</span></td>
+                            <td data-label="Price">
+                                <div style="font-weight: 800; color: var(--text-main);">${d.price} DH</div>
+                            </td>
+                            <td data-label="Status" class="text-center">
+                                <span class="badge" style="background: var(--stat-indigo-bg); color: var(--stat-indigo-text)">
+                                    <span class="badge-dot" style="background: var(--stat-indigo-text)"></span>
+                                    ${d.status || 'In Transit'}
+                                </span>
+                            </td>
+	                            <td data-label="Actions" class="text-center">
+	                                <div class="flex justify-center gap-2">
+	                                    <button class="btn-icon track-delivery" data-id="${d.id}" title="Refresh Tracking">${ICONS.search}</button>
+	                                    <button class="btn-icon view-delivery" data-id="${d.id}" title="Parcel Info">${ICONS.eye}</button>
+	                                    <button class="btn-icon delete-delivery" data-id="${d.id}" title="Delete" style="color: var(--accent-rose);">${ICONS.trash}</button>
+	                                </div>
+	                            </td>
+                        </tr>
+                    `).join('')}
+                    ${filtered.length === 0 ? '<tr><td colspan="6" style="text-align: center; padding: 40px; color: var(--text-light)">No deliveries tracked yet</td></tr>' : ''}
+                </tbody>
+            </table>
+        </div>
+    `;
+
+    container.innerHTML = html;
+
+    document.getElementById('add-delivery-btn').addEventListener('click', () => showDeliveryModal());
+    document.getElementById('import-deliveries-btn').addEventListener('click', () => showTrackParcelModal('', true));
+    document.getElementById('track-parcel-btn').addEventListener('click', () => showTrackParcelModal());
+    document.getElementById('refresh-all-deliveries-btn').addEventListener('click', () => refreshAllDeliveries());
+    document.getElementById('delivery-note-btn').addEventListener('click', () => showDeliveryNoteModal());
+    document.getElementById('delivery-search').addEventListener('input', (e) => {
+        ordersFilter.search = e.target.value;
+        safeRenderView();
+    });
+
+    container.querySelectorAll('.track-delivery').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const delivery = deliveries.find(d => d.id === btn.dataset.id);
+            if (delivery) trackDelivery(delivery);
+        });
+    });
+
+    container.querySelectorAll('.view-delivery').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const delivery = deliveries.find(d => d.id === btn.dataset.id);
+            if (delivery) showParcelInfoModal(delivery);
+        });
+    });
+    
+    container.querySelectorAll('.delete-delivery').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = btn.dataset.id;
+            const delivery = deliveries.find(d => d.id === id);
+            showConfirm({
+                title: 'Delete Tracking',
+                text: `Remove tracking for <strong>${delivery?.tracking}</strong>?`,
+                confirmText: 'Remove',
+                onConfirm: async () => {
+                    await callSheets({ action: 'deleteDelivery', id: id });
+                    deliveries = deliveries.filter(d => d.id !== id);
+                    saveDeliveries();
+                    renderView();
+                    closeModal();
+                    showToast('Tracking deleted', 'success');
+                }
+            });
         });
     });
 }
@@ -923,47 +1419,61 @@ function renderStatusDropdown(order) {
     const themed = darkMode
         ? { bg: "rgba(217, 15, 15, 0.22)", text: "#ffdede", dot: "#f98080" }
         : c;
+    const options = STATUSES.includes(order.status) ? STATUSES : [order.status, ...STATUSES];
     return `
-        <div style="position: relative; display: inline-block;">
-            <select class="status-dropdown" data-id="${order.id}" style="
-                appearance: none;
-                background: ${themed.bg};
-                color: ${themed.text};
-                border: 1px solid transparent;
-                padding: 4px 24px 4px 24px;
-                border-radius: 99px;
-                font-size: 12px;
-                font-weight: 700;
-                cursor: pointer;
-                outline: none;
-                font-family: inherit;
-                box-shadow: none;
-                transition: all 0.2s ease;
+        <div class="status-picker">
+            <button class="status-select-trigger" type="button" data-id="${order.id}" aria-haspopup="listbox" aria-expanded="false" style="
+                --status-bg: ${themed.bg};
+                --status-text: ${themed.text};
+                --status-dot: ${themed.dot};
             ">
-                ${(STATUSES.includes(order.status) ? STATUSES : [order.status, ...STATUSES]).map(s => `<option value="${s}" ${s === order.status ? 'selected' : ''}>${s}</option>`).join('')}
-            </select>
-            <span style="
-                position: absolute;
-                left: 10px;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 6px;
-                height: 6px;
-                border-radius: 50%;
-                background: ${themed.dot};
-                pointer-events: none;
-            "></span>
-            <svg style="
-                position: absolute;
-                right: 8px;
-                top: 50%;
-                transform: translateY(-50%);
-                pointer-events: none;
-            " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="${themed.text}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
+                <span class="status-select-dot"></span>
+                <span class="status-select-label">${order.status}</span>
+                <svg class="status-select-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+            <div class="status-select-menu" role="listbox" aria-label="Order status">
+                ${options.map(s => `
+                    <button class="status-select-option ${s === order.status ? 'selected' : ''}" type="button" role="option" aria-selected="${s === order.status}" data-id="${order.id}" data-status="${s}">
+                        <span>${s}</span>
+                        <svg class="status-select-check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </button>
+                `).join('')}
+            </div>
         </div>
     `;
+}
+
+function closeAllStatusMenus() {
+    document.querySelectorAll('.status-picker.open').forEach(picker => {
+        picker.classList.remove('open');
+        picker.querySelector('.status-select-trigger')?.setAttribute('aria-expanded', 'false');
+    });
+}
+
+async function updateOrderStatus(id, newStatus) {
+    const order = orders.find(o => o.id === id);
+
+    if (order && order.status !== newStatus) {
+        const originalStatus = order.status;
+        const updatedOrder = { ...order, status: newStatus };
+
+        // Optimistic UI update
+        orders = orders.map(o => o.id === id ? updatedOrder : o);
+        saveOrders();
+        renderView();
+
+        const result = await callSheets({ action: 'updateOrder', order: updatedOrder });
+        if (!result || !result.success) {
+            alert("Failed to update status in the database.");
+            // Revert back on failure
+            orders = orders.map(o => o.id === id ? { ...order, status: originalStatus } : o);
+            renderView();
+        }
+    }
 }
 
 // --- MODALS ---
@@ -973,10 +1483,10 @@ function showOrderModal(order = null) {
     const headerActions = order ? `<button class="header-action-btn danger" onclick="deleteOrder('${order.id}')" title="Delete Order">${ICONS.trash}</button>` : '';
 
     const STEPS = [
-        { label: 'Client', icon: '👤' },
-        { label: 'Products', icon: '🗂️' },
-        { label: 'Design', icon: '🖼️' },
-        { label: 'Delivery', icon: '📦' },
+        { label: 'Client', icon: '1' },
+        { label: 'Products', icon: '2' },
+        { label: 'Design', icon: '3' },
+        { label: 'Delivery', icon: '4' },
     ];
     let currentStep = 0;
 
@@ -994,22 +1504,25 @@ function showOrderModal(order = null) {
 
             return `
                 <div class="order-item-card ${isCollapsed ? 'collapsed' : ''}" id="item-card-${idx}">
-                    <div class="item-collapsed-summary" onclick="expandItem(${idx})">
+                    <div class="item-card-header" onclick="toggleItem(${idx})">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            <div style="font-weight: 800; color: var(--primary); font-size: 14px;">${item.article}</div>
-                            <div style="font-size: 12px; color: var(--text-muted);">${isRibbon ? (item.colorsData?.length || 0) + ' colors' : (item.sachetData?.qty || 0) + ' pcs'}</div>
+                            <div class="item-header-dot"></div>
+                            <div>
+                                <div style="font-weight: 800; color: var(--text-main); font-size: 14px;">${item.article}</div>
+                                <div style="font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; margin-top: 2px;">
+                                    ${isRibbon ? (item.colorsData?.length || 0) + ' colors selected' : (item.sachetData?.qty || 0) + ' units • ' + (item.sachetData?.size || 'no size')}
+                                </div>
+                            </div>
                         </div>
-                        <div style="color: var(--text-light);">${ICONS.edit}</div>
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            ${orderItems.length > 1 ? `<button type="button" onclick="event.stopPropagation(); removeItem(${idx})" style="color:var(--accent-rose); background:none; border:none; cursor:pointer; font-size: 12px; font-weight: 700; padding: 4px;">Remove</button>` : ''}
+                            <div class="item-toggle-icon">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="item-expanded-content">
-                        <div class="order-item-number">
-                            <span>Product Selection — ${item.article}</span>
-                            <div style="display: flex; gap: 12px; align-items: center;">
-                                ${orderItems.length > 1 ? `<button type="button" onclick="removeItem(${idx})" style="color:var(--accent-rose); background:none; border:none; cursor:pointer; font-size: 12px; font-weight: 600;">Remove</button>` : ''}
-                                <button type="button" onclick="collapseItem(${idx})" style="color:var(--accent-emerald); background:none; border:none; cursor:pointer; font-size: 12px; font-weight: 600;">Done</button>
-                            </div>
-                        </div>
                         <div class="form-group" style="margin-bottom:14px;">
                             <label>Article / Product</label>
                             <select onchange="updateItemArticle(${idx}, this.value)">
@@ -1026,7 +1539,7 @@ function showOrderModal(order = null) {
                             <button type="button" class="btn btn-secondary btn-dashed w-full" style="justify-content:center; font-size:12px;" onclick="openRibbonPicker(${idx})">${ICONS.plus} Add Ribbon Color</button>
                         ` : `
                             <p style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:12px;">Sachet Specifications</p>
-                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+                            <div class="mobile-form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
                                 <div class="form-group" style="margin-bottom:0;"><label>Color</label><input type="text" value="${item.sachetData?.color || ''}" placeholder="White" onchange="updateSachetData(${idx},'color',this.value)"></div>
                                 <div class="form-group" style="margin-bottom:0;"><label>Printing</label><input type="text" value="${item.sachetData?.print || ''}" placeholder="Gold" onchange="updateSachetData(${idx},'print',this.value)"></div>
                                 <div class="form-group" style="margin-bottom:0;"><label>Quantity</label><input type="number" value="${item.sachetData?.qty || ''}" placeholder="1000" onchange="updateSachetData(${idx},'qty',this.value)"></div>
@@ -1079,7 +1592,9 @@ function showOrderModal(order = null) {
                                 </select>
                             </td>
                             <td style="text-align:right;">
-                                <button type="button" onclick="removeRibbon(${idx},${cIdx})" style="color:var(--accent-rose);font-size:14px;background:none;border:none;cursor:pointer;">✕</button>
+                                <button type="button" onclick="removeRibbon(${idx},${cIdx})" style="color:var(--accent-rose);font-size:14px;background:none;border:none;cursor:pointer; display: flex; align-items: center; justify-content: flex-end; width: 100%;">
+                                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+                                </button>
                             </td>
                         </tr>
                     `).join('')}</tbody>
@@ -1099,6 +1614,17 @@ function showOrderModal(order = null) {
     window.addItem = () => {
         orderItems.forEach(it => it.collapsed = true);
         orderItems.push({ id: uid(), article: 'Ruban', colorsData: [], sachetData: {}, collapsed: false });
+        renderItemsList();
+    };
+    window.toggleItem = (idx) => {
+        const isCurrentlyCollapsed = orderItems[idx].collapsed;
+        if (isCurrentlyCollapsed) {
+            // Expand this one and collapse others
+            orderItems.forEach((it, i) => it.collapsed = (i !== idx));
+        } else {
+            // Just collapse this one
+            orderItems[idx].collapsed = true;
+        }
         renderItemsList();
     };
     window.collapseItem = (idx) => { orderItems[idx].collapsed = true; renderItemsList(); };
@@ -1136,7 +1662,7 @@ function showOrderModal(order = null) {
         // Step 0 – Client
         `<div class="wizard-section-title">Client Info</div>
          <div class="wizard-section-sub">Who placed this order?</div>
-         <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+         <div class="mobile-form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
              <div class="form-group" style="margin-bottom:0;">
                  <label>Client Name</label>
                  <input type="text" id="form-client" value="${order?.client || ''}" placeholder="Full name" list="clients-datalist">
@@ -1166,7 +1692,7 @@ function showOrderModal(order = null) {
         // Step 2 – Design
         `<div class="wizard-section-title">Design Image</div>
          <div class="wizard-section-sub">Upload the reference or design file for this order.</div>
-         <div id="image-upload-zone" style="border:2px dashed var(--border-color);border-radius:14px;padding:40px 28px;text-align:center;cursor:pointer;background:var(--bg-card);transition:border-color .2s;">
+         <div id="image-upload-zone" class="mobile-upload-zone" style="border:2px dashed var(--border-color);border-radius:14px;padding:40px 28px;text-align:center;cursor:pointer;background:var(--bg-card);transition:border-color .2s;">
              ${order?.design
             ? `<img src="${order.design}" style="max-height:140px;border-radius:10px;">`
             : `<div style="color:var(--text-light);">${ICONS.upload}<p style="margin-top:12px;font-size:14px;font-weight:600;">Click to upload design image</p><p style="font-size:12px;margin-top:4px;">PNG, JPG, WEBP</p></div>`}
@@ -1188,7 +1714,7 @@ function showOrderModal(order = null) {
 
     // ---- build modal body (progress UI + panels) ----
     const body = `
-        <div class="wizard-progress-wrap" id="wizard-progress" style="padding: 32px 32px 24px; border-bottom: 1px solid var(--border-color); margin-bottom: 24px; background: var(--bg-main);">
+        <div class="wizard-progress-wrap" id="wizard-progress" style="padding: 32px 32px 24px; border-bottom: 1px solid var(--border-color); margin-bottom: 24px;">
             <div class="wizard-steps-header">
                 ${STEPS.map((s, i) => `
                     <div class="wizard-step-dot" id="wdot-${i}" onclick="wizNav(${i - currentStep})" style="cursor:pointer;">
@@ -1198,27 +1724,31 @@ function showOrderModal(order = null) {
                 `).join('')}
             </div>
         </div>
-        <form id="order-form" style="padding: 0 28px 28px;">
+        <form id="order-form" class="mobile-order-form" style="padding: 0 28px 28px;">
             ${stepPanels.map((html, i) => `<div class="wizard-panel${i === 0 ? ' active' : ''}" id="wstep-${i}">${html}</div>`).join('')}
         </form>
     `;
 
     const footer = `
-        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 10px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
             <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
-            <div style="display: flex; gap: 12px;">
-                <button class="btn btn-secondary" id="wiz-back" style="display:none; padding: 10px 14px;" onclick="wizNav(-1)">
+            <div style="display: flex; gap: 12px; align-items: center;">
+                <button class="btn btn-secondary" id="wiz-back" style="visibility:hidden; display:flex; padding: 10px 14px;" onclick="wizNav(-1)">
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"></path></svg>
                 </button>
-                <button class="btn btn-primary" id="wiz-next" style="padding: 10px 14px;" onclick="wizNav(1)">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
-                </button>
-                <button class="btn btn-primary" id="wiz-save" style="background:var(--accent-emerald); border-color:var(--accent-emerald); color: white; padding-left: 24px; padding-right: 24px;">✓ Save Changes</button>
+                <div style="display: grid; grid-template-columns: 1fr; align-items: center;">
+                    <button class="btn btn-primary" id="wiz-next" style="grid-area: 1/1; display:flex; padding: 10px 14px;" onclick="wizNav(1)">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                    <button class="btn btn-primary" id="wiz-save" style="grid-area: 1/1; display:none; background:var(--accent-emerald); border-color:var(--accent-emerald); color: white; padding: 10px 14px; justify-content: center;">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg>
+                    </button>
+                </div>
             </div>
         </div>
     `;
 
-    openModal(title, body, footer, '860px', headerActions);
+    openModal(title, body, footer, '860px', headerActions, 'wizard-modal');
 
     // ---- Stepper engine ----
     const updateWizard = () => {
@@ -1233,7 +1763,7 @@ function showOrderModal(order = null) {
             p.classList.toggle('active', i === currentStep);
         });
 
-        document.getElementById('wiz-back').style.display = currentStep > 0 ? 'flex' : 'none';
+        document.getElementById('wiz-back').style.visibility = currentStep > 0 ? 'visible' : 'hidden';
         document.getElementById('wiz-next').style.display = currentStep < total - 1 ? 'flex' : 'none';
         document.getElementById('wiz-save').style.display = currentStep === total - 1 ? 'flex' : 'none';
 
@@ -1296,11 +1826,41 @@ function showOrderModal(order = null) {
         });
 
         if (result && result.success) {
+            // Auto-save/update client info
+            if (newOrder.client && newOrder.phone) {
+                const normalizedNewPhone = formatPhone(newOrder.phone);
+                const normalizedNewName = newOrder.client.toLowerCase().trim();
+
+                const existingIndex = clients.findIndex(c => 
+                    formatPhone(c.phone) === normalizedNewPhone || 
+                    c.name.toLowerCase().trim() === normalizedNewName
+                );
+
+                if (existingIndex > -1) {
+                    // Update existing client info (city/address) if they were blank
+                    if (!clients[existingIndex].city) clients[existingIndex].city = newOrder.ville;
+                    // Ensure name/phone are updated to the latest version if needed
+                    clients[existingIndex].phone = newOrder.phone;
+                } else {
+                    // Add new client
+                    clients.push({
+                        id: uid(),
+                        name: newOrder.client,
+                        phone: newOrder.phone,
+                        city: newOrder.ville,
+                        notes: `Added automatically from order on ${newOrder.date}`
+                    });
+                }
+                saveClients();
+            }
+
             if (order) {
                 orders = orders.map(o => o.id === order.id ? newOrder : o);
+                saveOrders();
                 showToast('Order updated successfully', 'success');
             } else {
                 orders.unshift(newOrder);
+                saveOrders();
                 showToast('Order created successfully', 'success');
                 // Play notification sound for new order
                 const notification = document.getElementById('order-notification');
@@ -1369,6 +1929,111 @@ window.sendEmailRecap = async function (id, isAuto = false) {
     }
 }
 
+window.printInvoice = function (id) {
+    const order = orders.find(o => o.id === id);
+    if (!order) return;
+
+    const printWindow = window.open('', '_blank');
+    const itemsHtml = (order.items || [{ article: order.article, colorsData: order.colorsData, sachetData: order.sachetData }]).map((item, i) => {
+        const isRibbon = item.article === 'Ruban';
+        return `
+            <div style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <strong style="font-size: 14px; color: #b30c0c;">${item.article}</strong>
+                    <span style="font-size: 12px; color: #666;">Item #${i + 1}</span>
+                </div>
+                ${isRibbon ?
+                (item.colorsData || []).map(c => `
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 3px;">
+                            <span>&bull; ${c.name} x <strong>${c.qty}</strong></span>
+                            <span style="color: #666;">Print: ${c.printColor || 'Std'}</span>
+                        </div>
+                    `).join('') :
+                `<div style="font-size: 12px; line-height: 1.5;">
+                        <div style="display: flex; justify-content: space-between;"><span>Color:</span><strong>${item.sachetData?.color || '-'}</strong></div>
+                        <div style="display: flex; justify-content: space-between;"><span>Size:</span><strong>${item.sachetData?.size || '-'}</strong></div>
+                        <div style="display: flex; justify-content: space-between;"><span>Qty:</span><strong>${item.sachetData?.qty || '-'} pcs</strong></div>
+                        <div style="display: flex; justify-content: space-between;"><span>Print:</span><strong style="color: #1976d2">${item.sachetData?.print || '-'}</strong></div>
+                    </div>`
+            }
+            </div>
+        `;
+    }).join('');
+
+    printWindow.document.write(`
+        <html>
+            <head>
+                <title>Invoice #${order.id.toUpperCase()}</title>
+                <style>
+                    @media print { @page { margin: 1cm; } }
+                    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #333; line-height: 1.6; padding: 20px; }
+                    .invoice-container { max-width: 800px; margin: 0 auto; }
+                    .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px; border-bottom: 2px solid #b30c0c; padding-bottom: 20px; }
+                    .logo { height: 60px; }
+                    .order-info { text-align: right; }
+                    .client-info { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px; background: #f9f9f9; padding: 20px; border-radius: 8px; }
+                    .section-title { font-size: 12px; text-transform: uppercase; font-weight: bold; color: #666; margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+                    .items-table { margin-bottom: 40px; }
+                    .total-box { text-align: right; border-top: 2px solid #333; padding-top: 15px; margin-top: 20px; }
+                    .total-label { font-size: 14px; color: #666; }
+                    .total-amount { font-size: 24px; font-weight: 800; color: #b30c0c; margin-left: 10px; }
+                    .footer { margin-top: 60px; text-align: center; font-size: 12px; color: #999; border-top: 1px solid #eee; padding-top: 20px; }
+                </style>
+            </head>
+            <body>
+                <div class="invoice-container">
+                    <div class="header">
+                        <img src="img/Wecraft Final Logos.png" class="logo" alt="WECRAFT">
+                        <div class="order-info">
+                            <h1 style="margin: 0; font-size: 24px;">INVOICE</h1>
+                            <p style="margin: 5px 0; font-weight: bold;">#${order.id.toUpperCase()}</p>
+                            <p style="margin: 0; color: #666;">Date: ${new Date().toLocaleDateString()}</p>
+                        </div>
+                    </div>
+
+                    <div class="client-info">
+                        <div>
+                            <div class="section-title">Bill To</div>
+                            <strong style="font-size: 16px;">${order.client}</strong><br>
+                            Phone: ${formatPhone(order.phone)}<br>
+                            ${order.ville}
+                        </div>
+                        <div>
+                            <div class="section-title">Shipping Address</div>
+                            ${order.address || 'N/A'}<br>
+                            ${order.ville}
+                        </div>
+                    </div>
+
+                    <div class="items-table">
+                        <div class="section-title">Order Items</div>
+                        ${itemsHtml}
+                    </div>
+
+                    <div class="total-box">
+                        <span class="total-label">Grand Total:</span>
+                        <span class="total-amount">${formatCurrency(order.price || 0)}</span>
+                    </div>
+
+                    <div class="footer">
+                        <p>Thank you for choosing WECRAFT!</p>
+                        <p>madrari.oussama.officiel@gmail.com</p>
+                    </div>
+                </div>
+                <script>
+                    window.onload = function() {
+                        setTimeout(() => {
+                            window.print();
+                            window.close();
+                        }, 500);
+                    };
+                </script>
+            </body>
+        </html>
+    `);
+    printWindow.document.close();
+}
+
 function showTaskModal(task = null) {
     const title = task ? 'Edit Task' : 'New Task';
     const body = `
@@ -1376,7 +2041,7 @@ function showTaskModal(task = null) {
             <label>Task Description</label>
             <input type="text" id="task-title" value="${task?.title || ''}" required>
         </div>
-        <div class="flex gap-3">
+        <div class="flex gap-3 mobile-form-grid">
             <div class="form-group w-full">
                 <label>Status</label>
                 <select id="task-status">${TASK_STATUSES.map(s => `<option value="${s}" ${task?.status === s ? 'selected' : ''}>${s}</option>`).join('')}</select>
@@ -1495,8 +2160,13 @@ ${articlesMessage}
 Total : ${order.price || 0}dh`;
 
     const footer = `
-        <button class="btn btn-secondary" onclick="closeModal()">Close</button>
-        <a href="${getWhatsAppLink(order.phone)}?text=${encodeURIComponent(whatsappText)}" class="btn btn-success" target="_blank">${ICONS.whatsapp} Share Status</a>
+        <div style="display: flex; justify-content: flex-end; width: 100%; gap: 10px;">
+            <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+            <button class="btn btn-primary" onclick="window.printInvoice('${order.id}')" style="background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-color); display: flex; align-items: center; gap: 8px;">
+                ${ICONS.print} Print Invoice
+            </button>
+            <a href="${getWhatsAppLink(order.phone)}?text=${encodeURIComponent(whatsappText)}" class="btn btn-success" target="_blank">${ICONS.whatsapp} Share Status</a>
+        </div>
     `;
     openModal(title, body, footer);
 }
@@ -1528,6 +2198,552 @@ function showClientModal(client = null) {
     });
 }
 
+function buildOzoneCredentialsFields() {
+    const { id, key } = getOzoneCredentials();
+    return `
+        <div class="ozone-credentials-grid">
+            <div class="form-group">
+                <label>Ozone Customer ID</label>
+                <input type="text" id="ozone-id" value="${escapeHtml(id)}" placeholder="Enter your ID">
+            </div>
+            <div class="form-group">
+                <label>Ozone API Key</label>
+                <input type="password" id="ozone-key" value="${escapeHtml(key)}" placeholder="Enter your API key">
+            </div>
+        </div>
+    `;
+}
+
+function readOzoneCredentialsFromModal() {
+    const id = document.getElementById('ozone-id')?.value.trim();
+    const key = document.getElementById('ozone-key')?.value.trim();
+    saveOzoneCredentials(id, key);
+    return { id, key };
+}
+
+function upsertDeliveryFromOzone(data, fallback = {}) {
+    const tracking = getTrackingNumber(data) || fallback.tracking;
+    if (!tracking) return null;
+
+    const existing = deliveries.find(d => String(d.tracking) === String(tracking));
+    const status = getTrackingStatus(data) || fallback.status || existing?.status || 'Pending';
+    const next = {
+        id: existing?.id || uid(),
+        tracking,
+        receiver: getOzoneValue(data, ['RECEIVER', 'receiver', 'parcel-receiver']) || fallback.receiver || existing?.receiver || '',
+        phone: getOzoneValue(data, ['PHONE', 'phone', 'parcel-phone']) || fallback.phone || existing?.phone || '',
+        city: getOzoneValue(data, ['CITY_NAME', 'city_name', 'CITY_ID', 'parcel-city']) || fallback.city || existing?.city || '',
+        price: getOzoneValue(data, ['PRICE', 'price', 'parcel-price']) || fallback.price || existing?.price || '',
+        status,
+        paymentStatus: getPaymentStatus(data) || fallback.paymentStatus || existing?.paymentStatus || '',
+        date: existing?.date || new Date().toISOString().slice(0, 10),
+        lastSync: new Date().toISOString(),
+        raw: data
+    };
+
+    deliveries = existing
+        ? deliveries.map(d => d.id === existing.id ? { ...d, ...next } : d)
+        : [next, ...deliveries];
+    
+    saveDeliveries();
+    // Sync to sheet in background
+    callSheets({ action: 'updateDelivery', delivery: next });
+    return next;
+}
+
+async function trackDelivery(delivery) {
+    const { id, key } = getOzoneCredentials();
+    if (!id || !key) {
+        showTrackParcelModal(delivery?.tracking || '');
+        return;
+    }
+
+    showLoading(true);
+    try {
+        const data = await ozoneRequest('tracking', {
+            id,
+            key,
+            fields: { 'tracking-number': delivery.tracking }
+        });
+        const status = getTrackingStatus(data);
+        const paymentStatus = getPaymentStatus(data);
+        deliveries = deliveries.map(d => d.id === delivery.id ? {
+            ...d,
+            status: status || d.status,
+            paymentStatus: paymentStatus || d.paymentStatus,
+            lastSync: new Date().toISOString(),
+            rawTracking: data
+        } : d);
+        saveDeliveries();
+        renderView();
+        showToast(status ? `Tracking updated: ${status}` : 'Tracking updated', 'success');
+    } catch (e) {
+        console.error(e);
+        showToast(e.message || 'Tracking request failed', 'error');
+    } finally {
+        showLoading(false);
+    }
+}
+
+async function refreshAllDeliveries() {
+    if (deliveries.length === 0) return;
+    
+    const { id, key } = getOzoneCredentials();
+    if (!id || !key) {
+        showToast('Please configure Ozon credentials first', 'error');
+        return;
+    }
+
+    showLoading(true);
+    
+    try {
+        // Collect all updates first to avoid race conditions with the global array
+        const updatedDeliveries = await Promise.all(deliveries.map(async (delivery) => {
+            try {
+                const data = await ozoneRequest('tracking', {
+                    id,
+                    key,
+                    fields: { 'tracking-number': delivery.tracking }
+                });
+                const status = getTrackingStatus(data);
+                const paymentStatus = getPaymentStatus(data);
+                
+                return {
+                    ...delivery,
+                    status: status || delivery.status,
+                    paymentStatus: paymentStatus || delivery.paymentStatus,
+                    lastSync: new Date().toISOString(),
+                    rawTracking: data
+                };
+            } catch (err) {
+                console.error(`Failed to refresh ${delivery.tracking}:`, err);
+                return delivery; // Return unchanged on error
+            }
+        }));
+        
+        deliveries = updatedDeliveries;
+        saveDeliveries();
+        // Sync all to sheet
+        await Promise.all(deliveries.map(d => callSheets({ action: 'updateDelivery', delivery: d })));
+        
+        renderView();
+        showToast(`Refreshed ${deliveries.length} deliveries`, 'success');
+    } catch (e) {
+        console.error(e);
+        showToast('Failed to refresh some deliveries', 'error');
+    } finally {
+        showLoading(false);
+    }
+}
+
+function showTrackParcelModal(initialTracking = '', importMode = false) {
+    const body = `
+        ${buildOzoneCredentialsFields()}
+        <div class="form-group">
+            <label>${importMode ? 'Existing Tracking Numbers' : 'Tracking Number(s)'}</label>
+            <textarea id="track-numbers" rows="5" placeholder="OZE123456789&#10;OZE987654321">${escapeHtml(initialTracking)}</textarea>
+            <div class="form-help">Paste one or many Ozon tracking numbers. Each result will be saved into the delivery table.</div>
+        </div>
+        <div id="track-result"></div>
+    `;
+    const footer = `
+        <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+        <button class="btn btn-primary" id="confirm-track-btn">${importMode ? 'Import to Table' : 'Track & Save'}</button>
+    `;
+
+    openModal(importMode ? 'Import Existing Ozon Deliveries' : 'Track Ozone Parcel', body, footer, '720px');
+
+    document.getElementById('confirm-track-btn').addEventListener('click', async () => {
+        const credentials = readOzoneCredentialsFromModal();
+        const numbers = document.getElementById('track-numbers').value
+            .split(/[\n,; ]+/)
+            .map(v => v.trim())
+            .filter(Boolean);
+
+        if (!credentials.id || !credentials.key || numbers.length === 0) {
+            showToast('Enter Ozone credentials and at least one tracking number.', 'error');
+            return;
+        }
+
+        showLoading(true);
+        try {
+            if (importMode) {
+                const results = [];
+                let imported = 0;
+
+                for (const number of numbers) {
+                    const [infoResult, trackingResult] = await Promise.all([
+                        ozoneRequest('parcel-info', {
+                            ...credentials,
+                            fields: { 'tracking-number': number }
+                        }),
+                        ozoneRequest('tracking', {
+                            ...credentials,
+                            fields: { 'tracking-number': number }
+                        })
+                    ]);
+
+                    const saved = upsertDeliveryFromOzone(infoResult, {
+                        tracking: number,
+                        status: getTrackingStatus(trackingResult),
+                        paymentStatus: getPaymentStatus(trackingResult)
+                    });
+
+                    if (saved) {
+                        deliveries = deliveries.map(d => d.id === saved.id ? {
+                            ...d,
+                            status: getTrackingStatus(trackingResult) || d.status,
+                            rawTracking: trackingResult
+                        } : d);
+                        imported += 1;
+                    }
+
+                    results.push({ tracking: number, parcelInfo: infoResult, trackingResult });
+                }
+
+                saveDeliveries();
+                document.getElementById('track-result').innerHTML = renderJsonBlock(results);
+                renderView();
+                showToast(`${imported} deliver${imported === 1 ? 'y' : 'ies'} saved to table`, 'success');
+                return;
+            }
+
+            const data = await ozoneRequest('tracking', {
+                ...credentials,
+                fields: { 'tracking-number': numbers.length === 1 ? numbers[0] : numbers },
+                json: numbers.length > 1
+            });
+
+            const rows = normalizeOzoneRows(data, numbers);
+            let imported = 0;
+            rows.forEach((row, index) => {
+                const saved = upsertDeliveryFromOzone(row, { tracking: getTrackingNumber(row) || numbers[index] || numbers[0] });
+                if (saved) imported += 1;
+            });
+            document.getElementById('track-result').innerHTML = renderJsonBlock(data);
+            renderView();
+            showToast(`${imported} deliver${imported === 1 ? 'y' : 'ies'} saved to table`, 'success');
+        } catch (e) {
+            console.error(e);
+            document.getElementById('track-result').innerHTML = `<div class="api-error-box">${escapeHtml(e.message || 'Tracking request failed')}</div>`;
+        } finally {
+            showLoading(false);
+        }
+    });
+}
+
+function showParcelInfoModal(delivery = null) {
+    const body = `
+        ${buildOzoneCredentialsFields()}
+        <div class="form-group">
+            <label>Tracking Number</label>
+            <input type="text" id="parcel-info-tracking" value="${escapeHtml(delivery?.tracking || '')}" placeholder="OZE123456789">
+        </div>
+        <div id="parcel-info-result">
+            ${delivery?.raw ? renderJsonBlock(delivery.raw) : ''}
+        </div>
+    `;
+    const footer = `
+        <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+        <button class="btn btn-primary" id="confirm-parcel-info-btn">Get Info</button>
+    `;
+
+    openModal('Parcel Info', body, footer, '720px');
+
+    document.getElementById('confirm-parcel-info-btn').addEventListener('click', async () => {
+        const credentials = readOzoneCredentialsFromModal();
+        const tracking = document.getElementById('parcel-info-tracking').value.trim();
+
+        if (!credentials.id || !credentials.key || !tracking) {
+            showToast('Enter Ozone credentials and a tracking number.', 'error');
+            return;
+        }
+
+        showLoading(true);
+        try {
+            const data = await ozoneRequest('parcel-info', {
+                ...credentials,
+                fields: { 'tracking-number': tracking }
+            });
+            upsertDeliveryFromOzone(data, { tracking });
+            document.getElementById('parcel-info-result').innerHTML = renderJsonBlock(data);
+            renderView();
+            showToast('Parcel info loaded', 'success');
+        } catch (e) {
+            console.error(e);
+            document.getElementById('parcel-info-result').innerHTML = `<div class="api-error-box">${escapeHtml(e.message || 'Parcel info request failed')}</div>`;
+        } finally {
+            showLoading(false);
+        }
+    });
+}
+
+function showDeliveryNoteModal() {
+    const trackingNumbers = deliveries.map(d => d.tracking).filter(Boolean).join('\n');
+    const body = `
+        ${buildOzoneCredentialsFields()}
+        <div class="form-group">
+            <label>Existing BL Ref (optional)</label>
+            <input type="text" id="delivery-note-ref" placeholder="Leave empty to create a new BL">
+        </div>
+        <div class="form-group">
+            <label>Tracking Numbers</label>
+            <textarea id="delivery-note-codes" rows="7" placeholder="OZE123456789&#10;OZE987654321">${escapeHtml(trackingNumbers)}</textarea>
+        </div>
+        <div id="delivery-note-result"></div>
+    `;
+    const footer = `
+        <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+        <button class="btn btn-primary" id="confirm-delivery-note-btn">Create & Save BL</button>
+    `;
+
+    openModal('Ozone Delivery Note', body, footer, '760px');
+
+    document.getElementById('confirm-delivery-note-btn').addEventListener('click', async () => {
+        const credentials = readOzoneCredentialsFromModal();
+        const codes = document.getElementById('delivery-note-codes').value
+            .split(/[\n,; ]+/)
+            .map(v => v.trim())
+            .filter(Boolean);
+        let ref = document.getElementById('delivery-note-ref').value.trim();
+
+        if (!credentials.id || !credentials.key || codes.length === 0) {
+            showToast('Enter Ozone credentials and at least one tracking number.', 'error');
+            return;
+        }
+
+        showLoading(true);
+        try {
+            const steps = {};
+            if (!ref) {
+                steps.create = await ozoneRequest('add-delivery-note', credentials);
+                ref = getOzoneValue(steps.create, ['ref', 'Ref', 'REF', 'dn-ref', 'delivery-note-ref']);
+                if (!ref) throw new Error('Ozone did not return a delivery note reference.');
+            }
+
+            steps.addParcels = await ozoneRequest('add-parcel-to-delivery-note', {
+                ...credentials,
+                fields: { Ref: ref, Codes: codes }
+            });
+            steps.save = await ozoneRequest('save-delivery-note', {
+                ...credentials,
+                fields: { Ref: ref }
+            });
+
+            deliveries = deliveries.map(d => codes.includes(d.tracking) ? { ...d, deliveryNoteRef: ref } : d);
+            saveDeliveries();
+            renderView();
+
+            const pdf = `${OZONE_PDF_BASE}/pdf-delivery-note?dn-ref=${encodeURIComponent(ref)}`;
+            const ticketsA4 = `${OZONE_PDF_BASE}/pdf-delivery-note-tickets?dn-ref=${encodeURIComponent(ref)}`;
+            const tickets10 = `${OZONE_PDF_BASE}/pdf-delivery-note-tickets-4-4?dn-ref=${encodeURIComponent(ref)}`;
+
+            document.getElementById('delivery-note-result').innerHTML = `
+                <div class="api-success-box">
+                    <div><strong>BL saved:</strong> ${escapeHtml(ref)}</div>
+                    <div class="delivery-note-links">
+                        <a class="btn btn-secondary" href="${pdf}" target="_blank" rel="noopener">PDF Standard</a>
+                        <a class="btn btn-secondary" href="${ticketsA4}" target="_blank" rel="noopener">Tickets A4</a>
+                        <a class="btn btn-secondary" href="${tickets10}" target="_blank" rel="noopener">Tickets 10x10</a>
+                    </div>
+                </div>
+                ${renderJsonBlock(steps)}
+            `;
+            showToast('Delivery note saved', 'success');
+        } catch (e) {
+            console.error(e);
+            document.getElementById('delivery-note-result').innerHTML = `<div class="api-error-box">${escapeHtml(e.message || 'Delivery note request failed')}</div>`;
+        } finally {
+            showLoading(false);
+        }
+    });
+}
+
+async function showDeliveryModal(delivery = null) {
+    const title = 'Add to Ozone Express';
+
+    // If no order is provided, show a selection or simple form
+    const body = `
+        ${buildOzoneCredentialsFields()}
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid var(--border-color);">
+        <div class="form-group">
+            <label>Link to Order (Optional)</label>
+            <select id="delivery-order-link" onchange="fillDeliveryFromOrder(this.value)">
+                <option value="">Manual Entry</option>
+                ${orders.filter(o => o.status !== 'Delivered').map(o => `<option value="${o.id}">${o.client} - ${o.article}</option>`).join('')}
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Receiver Name</label>
+            <input type="text" id="delivery-receiver" value="" placeholder="Mohammed Alami">
+        </div>
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="text" id="delivery-phone" value="" placeholder="0612345678">
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <input type="text" id="delivery-address" value="" placeholder="123 Rue Hassan II">
+        </div>
+        <div class="form-group">
+            <label>City (Ozone)</label>
+            <select id="delivery-city" required>
+                <option value="">Loading cities...</option>
+            </select>
+        </div>
+        <div class="ozone-form-grid">
+            <div class="form-group">
+                <label>Price (MAD)</label>
+                <input type="number" id="delivery-price" value="" placeholder="250">
+            </div>
+            <div class="form-group">
+                <label>Declared Value</label>
+                <input type="number" id="delivery-declared-value" value="" placeholder="50">
+            </div>
+            <div class="form-group">
+                <label>Custom Tracking</label>
+                <input type="text" id="delivery-tracking-number" value="" placeholder="Optional">
+            </div>
+            <div class="form-group">
+                <label>Nature</label>
+                <input type="text" id="delivery-nature" value="Wecraft order" placeholder="Parcel content">
+            </div>
+            <div class="form-group">
+                <label>Stock</label>
+                <select id="delivery-stock">
+                    <option value="0" selected>Ramassage (pickup)</option>
+                    <option value="1">Stock (requires product ref)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Open Parcel</label>
+                <select id="delivery-open">
+                    <option value="1">Can open</option>
+                    <option value="2">Do not open</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Fragile</label>
+                <select id="delivery-fragile">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Exchange</label>
+                <select id="delivery-optional">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Note</label>
+            <textarea id="delivery-note" rows="3" placeholder="Appeler avant livraison"></textarea>
+        </div>
+    `;
+
+    const footer = `
+        <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+        <button class="btn btn-primary" id="confirm-delivery-btn" style="background: #000; color: #fff;">Create Parcel</button>
+    `;
+
+    openModal(title, body, footer);
+    populateOzoneCitySelect();
+
+    window.fillDeliveryFromOrder = (orderId) => {
+        const order = orders.find(o => o.id === orderId);
+        if (order) {
+            document.getElementById('delivery-receiver').value = order.client;
+            document.getElementById('delivery-phone').value = order.phone;
+            document.getElementById('delivery-address').value = order.address || '';
+            document.getElementById('delivery-price').value = order.price || '';
+        }
+    };
+
+    document.getElementById('confirm-delivery-btn').addEventListener('click', async () => {
+        const id = document.getElementById('ozone-id').value;
+        const key = document.getElementById('ozone-key').value;
+        const receiver = document.getElementById('delivery-receiver').value;
+        const phone = document.getElementById('delivery-phone').value;
+        const address = document.getElementById('delivery-address').value;
+        const city = document.getElementById('delivery-city').value;
+        const price = document.getElementById('delivery-price').value;
+        const declaredValue = document.getElementById('delivery-declared-value').value;
+        const customTracking = document.getElementById('delivery-tracking-number').value;
+        const note = document.getElementById('delivery-note').value;
+        const nature = document.getElementById('delivery-nature').value;
+        const stock = document.getElementById('delivery-stock').value;
+        const open = document.getElementById('delivery-open').value;
+        const fragile = document.getElementById('delivery-fragile').value;
+        const optional = document.getElementById('delivery-optional').value;
+
+        if (!id || !key || !receiver || !phone || !address || !city || !price) {
+            alert("Please fill in all required fields (including an Ozone city).");
+            return;
+        }
+
+        if (stock === '1') {
+            alert("Stock parcels require product references in Ozone. Use Ramassage (pickup) or add products in your Ozone account first.");
+            return;
+        }
+
+        saveOzoneCredentials(id, key);
+
+        showLoading(true);
+        try {
+            const cityId = resolveOzoneCityId(city) || city;
+            const fields = {
+                'tracking-number': customTracking,
+                'parcel-receiver': receiver,
+                'parcel-phone': phone,
+                'parcel-city': cityId,
+                'parcel-address': address,
+                'parcel-note': note,
+                'parcel-price': price,
+                'parcel-declared-value': declaredValue,
+                'parcel-nature': nature,
+                'parcel-stock': stock,
+                'parcel-open': open,
+                'parcel-fragile': fragile,
+                'parcel-optional': optional
+            };
+
+            const result = await ozoneRequest('add-parcel', { id, key, fields });
+            const tracking = getTrackingNumber(result) || customTracking;
+            if (tracking) {
+                const cityName = getOzoneValue(result, ['CITY_NAME']) || getOzoneCityName(cityId) || city;
+                const newDelivery = {
+                    id: uid(),
+                    tracking,
+                    receiver,
+                    phone,
+                    city: cityName,
+                    price,
+                    status: getTrackingStatus(result) || "Pending",
+                    date: new Date().toISOString().slice(0, 10),
+                    raw: result
+                };
+
+                deliveries.unshift(newDelivery);
+                saveDeliveries();
+                callSheets({ action: 'addDelivery', delivery: newDelivery }).catch(() => null);
+
+                showToast('Parcel created in Ozone & tracked!', 'success');
+                renderView();
+                closeModal();
+            } else {
+                alert("Ozone Error: Parcel may have been created but no tracking number was returned. Check your Ozone dashboard.");
+            }
+        } catch (e) {
+            console.error(e);
+            alert("Ozone Error: " + (e.message || "Could not create parcel. Check your Customer ID and API key."));
+        } finally {
+            showLoading(false);
+        }
+    });
+}
+
 // --- COLOR PICKER ---
 function showColorPicker(onSelect, initialSelectedNames = []) {
     let pickerOverlay = document.getElementById('color-picker-overlay');
@@ -1552,7 +2768,9 @@ function showColorPicker(onSelect, initialSelectedNames = []) {
                             <div class="color-option" data-name="${c.name}" style="cursor: pointer; padding: 16px; border-radius: 16px; border: 1px solid var(--border-color); display: flex; flex-direction: column; align-items: center; gap: 12px; transition: all 0.2s; background: var(--bg-card); position: relative;">
                                 <div style="width: 48px; height: 48px; border-radius: 50%; background: ${c.hex}; border: 1px solid var(--border-color); flex-shrink: 0; box-shadow: 0 2px 4px rgba(0,0,0,0.05);"></div>
                                 <div style="font-size: 14px; font-weight: 600; text-align: center; color: var(--text-main);">${c.name}</div>
-                                <div class="check-mark" style="position: absolute; top: 8px; right: 8px; background: #10b981; color: white; width: 20px; height: 20px; border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 12px;">✓</div>
+                                <div class="check-mark" style="position: absolute; top: 8px; right: 8px; background: #10b981; color: white; width: 20px; height: 20px; border-radius: 50%; display: none; align-items: center; justify-content: center;">
+                                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                                </div>
                             </div>
                         `).join('')}
                     </div>
@@ -1610,7 +2828,11 @@ function showColorPicker(onSelect, initialSelectedNames = []) {
     });
 }
 
-function openModal(title, body, footer, maxWidth = '500px', headerActions = '') {
+function openModal(title, body, footer, maxWidth = '500px', headerActions = '', modalClass = '') {
+    const modalEl = document.querySelector('#modal-overlay .modal');
+    modalEl.style.maxWidth = maxWidth;
+    modalEl.className = `modal ${modalClass}`.trim();
+
     document.getElementById('modal-title').textContent = title;
     document.getElementById('modal-body').innerHTML = body;
     document.getElementById('modal-footer').innerHTML = footer;
@@ -1621,7 +2843,6 @@ function openModal(title, body, footer, maxWidth = '500px', headerActions = '') 
         actionContainer.innerHTML = headerActions;
     }
 
-    document.querySelector('#modal-overlay .modal').style.maxWidth = maxWidth;
     document.getElementById('modal-overlay').classList.add('active');
     window.tempImage = null;
 }
@@ -1638,9 +2859,11 @@ window.deleteOrder = (id) => {
         text: `Are you sure you want to delete the order for <strong>${order?.client || 'this client'}</strong>? This action cannot be undone.`,
         confirmText: 'Delete Order',
         onConfirm: async () => {
-            const result = await callSheets({ action: 'deleteOrder', id: id });
+            // Send both id and orderId to ensure the script finds it
+            const result = await callSheets({ action: 'deleteOrder', id: id, orderId: id });
             if (result && result.success) {
                 orders = orders.filter(o => o.id !== id);
+                saveOrders(); // Persist to localStorage
                 renderView();
                 closeModal();
                 showToast('Order deleted successfully', 'success');
@@ -1745,7 +2968,7 @@ function showOrderDetailsModal(order) {
             detailsHtml = `
                 <div class="so-detail-row"><span class="so-detail-label">Color</span><span class="so-detail-value">${sd.color || '-'}</span></div>
                 <div class="so-detail-row"><span class="so-detail-label">Size</span><span class="so-detail-value">${sd.size || '-'}</span></div>
-                <div class="so-detail-row"><span class="so-detail-label">Quantity</span><span class="so-detail-value">${sd.qty || order.quantities || '-'} pcs</span></div>
+                <div class="so-detail-row"><span class="so-detail-label">Quantity</span><span class="so-detail-value" style="text-transform: uppercase; font-weight: 600;">${sd.qty || order.quantities || '-'} pcs</span></div>
                 <div class="so-detail-row"><span class="so-detail-label">Print</span><span class="so-detail-value" style="color: var(--primary);">${sd.print || '-'}</span></div>
             `;
         }
@@ -1834,7 +3057,7 @@ function showOrderDetailsModal(order) {
                 ${itemsHtml}
                 
                 <div class="so-section-title" style="margin-top: 2rem;">Client Details</div>
-                <div class="so-client-info">
+                <div class="so-client-info" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                     <div class="so-client-info-item">
                         <div class="so-icon-box">
                             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
@@ -1874,6 +3097,9 @@ function showOrderDetailsModal(order) {
             <button class="btn btn-primary" onclick="window.sendEmailRecap('${order.id}')" style="background: var(--primary); color: white; display: flex; align-items: center; gap: 8px;">
                 ${ICONS.mail} Send Recap
             </button>
+            <button class="btn btn-primary" onclick="window.printInvoice('${order.id}')" style="background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-color); display: flex; align-items: center; gap: 8px;">
+                ${ICONS.print} Print Invoice
+            </button>
             <button class="btn btn-primary" onclick="showInvoice('${order.id}')" style="background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-color); display: flex; align-items: center; gap: 8px;">
                 ${ICONS.invoice} View Invoice
             </button>
@@ -1885,4 +3111,3 @@ function showOrderDetailsModal(order) {
 
 // Initialize App
 init();
-
