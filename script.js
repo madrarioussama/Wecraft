@@ -727,7 +727,26 @@ function renderDashboard(container) {
 }
 
 function renderOrders(container) {
-    const filtered = orders.filter(o => {
+    // Filter out completed orders older than 4 days
+    const activeOrders = orders.filter(o => {
+        if (o.status === 'Completed') {
+            const compDateStr = o.completedDate || o.date;
+            if (compDateStr) {
+                const compDate = new Date(compDateStr);
+                const today = new Date();
+                compDate.setHours(0, 0, 0, 0);
+                today.setHours(0, 0, 0, 0);
+                const diffTime = today - compDate;
+                const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+                if (diffDays > 4) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    });
+
+    const filtered = activeOrders.filter(o => {
         const q = ordersFilter.search.toLowerCase();
         return (!q || o.client.toLowerCase().includes(q) || (o.article && o.article.toLowerCase().includes(q))) &&
             (!ordersFilter.status || o.status === ordersFilter.status) &&
@@ -735,11 +754,11 @@ function renderOrders(container) {
     });
 
     // Count by status for pills
-    const todoCnt  = orders.filter(o => o.status === 'To Do').length;
-    const doingCnt = orders.filter(o => o.status === 'Doing').length;
-    const doneCnt  = orders.filter(o => o.status === 'Done').length;
-    const completedCnt = orders.filter(o => o.status === 'Completed').length;
-    const totalCnt = orders.length;
+    const todoCnt  = activeOrders.filter(o => o.status === 'To Do').length;
+    const doingCnt = activeOrders.filter(o => o.status === 'Doing').length;
+    const doneCnt  = activeOrders.filter(o => o.status === 'Done').length;
+    const completedCnt = activeOrders.filter(o => o.status === 'Completed').length;
+    const totalCnt = activeOrders.length;
 
     let html = `
         <div class="orders-topbar">
@@ -1459,7 +1478,11 @@ async function updateOrderStatus(id, newStatus) {
 
     if (order && order.status !== newStatus) {
         const originalStatus = order.status;
-        const updatedOrder = { ...order, status: newStatus };
+        const updatedOrder = { 
+            ...order, 
+            status: newStatus,
+            completedDate: newStatus === 'Completed' ? (order.completedDate || new Date().toISOString().slice(0, 10)) : ''
+        };
 
         // Optimistic UI update
         orders = orders.map(o => o.id === id ? updatedOrder : o);
@@ -1803,6 +1826,7 @@ function showOrderModal(order = null) {
             return `${item.article}: ${item.sachetData?.qty || 0} pcs`;
         }).join(' | ');
 
+        const formStatus = document.getElementById('form-status').value || 'To Do';
         const newOrder = {
             id: order?.id || uid(),
             client: document.getElementById('form-client').value,
@@ -1815,8 +1839,9 @@ function showOrderModal(order = null) {
             colors: colorsStr,
             quantities: quantitiesStr,
             design: window.tempImage || order?.design || null,
-            status: document.getElementById('form-status').value || 'To Do',
-            date: order?.date || new Date().toISOString().slice(0, 10)
+            status: formStatus,
+            date: order?.date || new Date().toISOString().slice(0, 10),
+            completedDate: formStatus === 'Completed' ? (order?.completedDate || new Date().toISOString().slice(0, 10)) : ''
         };
 
         const action = order ? 'updateOrder' : 'addOrder';
